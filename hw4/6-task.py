@@ -8,11 +8,11 @@ def create_phone_number(num_tuple):
     count = 0
     while count < len(num_tuple):
         if count < 3:
-           str_phone += str(num_tuple[count])
-           if count == 2:
-               print(count)
-               str_phone += ') '
-         count > 2 and count < 7:
+            str_phone += str(num_tuple[count])
+            if count == 2:
+                print(count)
+                str_phone += ') '
+        elif 2 < count < 7:
             str_phone += str(num_tuple[count])
             if count == 5:
                 str_phone += '-'
