@@ -14,19 +14,35 @@
 class Segment:
 
     def __init__(self, coord1: tuple, coord2: tuple):
+
+        """
+
+        :param coord1: кортеж с координатами x1, y1
+        :param coord2: кортеж с координатами x2, y2
+        """
+
         self.x1 = coord1[0]
         self.x2 = coord2[0]
         self.y1 = coord1[1]
         self.y2 = coord2[1]
 
     def length(self):
+        """
+        :return: Возвращает длину нашего отрезка, с округлением до 2 знаков после запятой
+        """
         len_segment = pow(pow((self.x2 - self.x1), 2) + pow((self.y2 - self.y1), 2), 0.5)
         return round(len_segment, 2)
 
     def x_axis_intersection(self):
+        """
+        :return: Возвращает True, если отрезок пересекает ось абцисс, иначе False
+        """
         return self.x1 * self.x2 <= 0
 
     def y_axis_intersection(self):
+        """
+        :return: Возвращает True, если отрезок пересекает ось ординат, иначе False
+        """
         return self.y1 * self.y2 <= 0
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

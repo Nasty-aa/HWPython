@@ -27,6 +27,14 @@
 class PublicTransport:
 
     def __init__(self, brand: str, engine_power: int, year: int, color: str, max_speed: int):
+        """
+
+        :param brand: Марка транспорта
+        :param engine_power: Мощность двигателя
+        :param year: Год выпуска
+        :param color: Цвет
+        :param max_speed: Максимальная скорость
+        """
         self.brand = brand
         self._engine_power = engine_power
         self.year = year
@@ -35,12 +43,27 @@ class PublicTransport:
 
     @property
     def info(self):
+        """
+
+        :return: выводит на печать информацию о: марке, цвете, годе выпуска и мощности двигателя
+        """
         return self.brand, self.color, self.year, self.max_speed
 
 
 class Bus(PublicTransport):
 
     def __init__(self, brand, engine_power, year, color, max_speed, passengers, park, fare):
+        """
+
+        :param brand: Марка транспорта
+        :param engine_power: Мощность двигателя
+        :param year: Год выпуска
+        :param color: Цвет
+        :param max_speed: Максимальная скорость
+        :param passengers: кол-во пассажиров
+        :param park: Парк приписки автобуса
+        :param fare: Стоимость проезда
+        """
         self.passengers = passengers
         self.__park = park
         self._fare = fare
@@ -48,10 +71,19 @@ class Bus(PublicTransport):
 
     @property
     def park(self):
+        """
+
+        :return: Возвращает значение park
+        """
         return self.park
 
     @park.setter
     def park(self, park_value):
+        """
+
+        :param park_value: Номер парка
+        :return: Проверяем присвоение номера парка, должно быть в диапазоне от 1000 до 9999
+        """
         if 1000 < park_value < 9999:
             self.__park = park_value
         else:
@@ -61,6 +93,17 @@ class Bus(PublicTransport):
 class Tram(PublicTransport):
 
     def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
+        """
+
+        :param brand: Марка транспорта
+        :param engine_power: Мощность двигателя
+        :param year: Год выпуска
+        :param color: Цвет
+        :param max_speed: Максимальная скорость
+        :param route: маршрут трамвая
+        :param path: длина маршрута
+        :param fare: Стоимость проезда
+        """
         self.__route = route
         self.path = path
         self._fare = fare
@@ -68,6 +111,10 @@ class Tram(PublicTransport):
 
     @property
     def how_long(self):
+        """
+
+        :return: вычисляет время прохождения маршрута по формуле max_speed/(4*path)
+        """
         return self.max_speed / (4 * self.path)
 
 

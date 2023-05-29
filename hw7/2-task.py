@@ -25,15 +25,26 @@
 class PersonInfo:
 
     def __init__(self, fio: str, age: int, *subdivision: list):
+        """
+        :param fio: Имя Фамилия
+        :param age: Возраст
+        :param subdivision: Подразделение
+        """
         self.fio = fio
         self.age = age
         self.subdivision = subdivision
 
     def short_name(self):
+        """
+        :return: Возвращает строку Фамилия И.
+        """
         array_name = self.fio.split()
-        return array_name[1] + ' ' + array_name[0][:1] + '.'
+        return array_name[1] + ' ' + array_name[0][0] + '.'
 
     def path_deps(self):
+        """
+        :return: Возвращает путь "Головное подразделение --> ... --> Конечное подразделение"
+        """
         string_subdivision = ''
         len_subdivision = len(self.subdivision)
         for elem in self.subdivision:
@@ -43,6 +54,10 @@ class PersonInfo:
         return string_subdivision
 
     def new_salary(self):
+        """
+        :return: Возвращает новую зарплату рассчитанную по формуле:
+        1337*Возраст*суммарное кол-во вхождений трех наиболее часто встречающихся букв из списка подразделений
+        """
         letters_dict = {}
         for elem in self.subdivision:
             for let in elem:
