@@ -24,7 +24,7 @@
 # Здесь пишем код
 class PersonInfo:
 
-    def __init__(self, fio: str, age: int, *subdivision: list):
+    def __init__(self, fio: str, age: int, *subdivision: str):
         """
         :param fio: Имя Фамилия
         :param age: Возраст
@@ -39,18 +39,13 @@ class PersonInfo:
         :return: Возвращает строку Фамилия И.
         """
         array_name = self.fio.split()
-        return array_name[1] + ' ' + array_name[0][0] + '.'
+        return f'{array_name[1]} {array_name[0][0]}.'
 
     def path_deps(self):
         """
         :return: Возвращает путь "Головное подразделение --> ... --> Конечное подразделение"
         """
-        string_subdivision = ''
-        len_subdivision = len(self.subdivision)
-        for elem in self.subdivision:
-            string_subdivision = string_subdivision + str(elem)
-            if len_subdivision-1 > self.subdivision.index(elem):
-                string_subdivision += ' --> '
+        string_subdivision = ' --> '.join(self.subdivision)
         return string_subdivision
 
     def new_salary(self):

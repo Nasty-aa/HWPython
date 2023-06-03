@@ -47,7 +47,7 @@ class PublicTransport:
 
         :return: выводит на печать информацию о: марке, цвете, годе выпуска и мощности двигателя
         """
-        return self.brand, self.color, self.year, self.max_speed
+        return f'Марка машины {self.brand} \n Цвет машины {self.color} \n Год выпуска {self.year} \n Мощность двигателя {self.max_speed}'
 
 
 class Bus(PublicTransport):
@@ -67,7 +67,7 @@ class Bus(PublicTransport):
         self.passengers = passengers
         self.__park = park
         self._fare = fare
-        PublicTransport.__init__(self, brand, engine_power, year, color, max_speed)
+        super().__init__(self, brand, engine_power, year, color, max_speed)
 
     @property
     def park(self):
@@ -84,7 +84,7 @@ class Bus(PublicTransport):
         :param park_value: Номер парка
         :return: Проверяем присвоение номера парка, должно быть в диапазоне от 1000 до 9999
         """
-        if 1000 < park_value < 9999:
+        if 1000 <= park_value <= 9999:
             self.__park = park_value
         else:
             raise AssertionError('Не угадали с диапазоном park')
@@ -107,7 +107,7 @@ class Tram(PublicTransport):
         self.__route = route
         self.path = path
         self._fare = fare
-        PublicTransport.__init__(self, brand, engine_power, year, color, max_speed)
+        super().__init__(self, brand, engine_power, year, color, max_speed)
 
     @property
     def how_long(self):
