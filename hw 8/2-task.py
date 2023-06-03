@@ -32,13 +32,14 @@ class Trigon:
         4) Если не соблюдается неравество треугольника, то вовзращается  Exception('Не треугольник')
 
         """
-        for ar in args:
-            if type(ar) != int:
-                raise TypeError('Стороны должны быть числами')
-            elif ar <= 0:
-                raise ValueError('Стороны должны быть положительными')
+        self.args = args
+
         if len(args) != 3:
             raise IndexError(f'Передано {len(args)} аргументов, а ожидается 3')
+        elif isinstance(args[0], str) or isinstance(args[1], str) or isinstance(args[2], str):
+            raise TypeError('Стороны должны быть числами')
+        elif args[0] <= 0 or args[1] <= 0 or args[2] <= 0:
+           raise ValueError('Стороны должны быть положительными')
         elif args[0] + args[1] <= args[2] or args[1] + args[2] <= args[0] or args[0] + args[2] <= args[1]:
             raise Exception('Не треугольник')
 
