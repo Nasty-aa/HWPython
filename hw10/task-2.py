@@ -24,16 +24,16 @@ def test_zero():
 
 
 @pytest.mark.smoke
-def test_values_int():
+def test_values_type_int():
     assert all_division(10, 2)
 
 
 @pytest.mark.acceptance
-def test_values_float():
+def test_values_type_float():
     assert all_division(2.5, 0.2) == 12.5
 
 
-def test_values_type_error():
+def test_values_error():
     with pytest.raises(TypeError):
         all_division('sd', ['0', 1], {'key': 1})
 
