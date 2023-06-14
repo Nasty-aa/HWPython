@@ -14,7 +14,7 @@ driver = webdriver.Chrome()
 driver.maximize_window()
 
 try:
-    user_login, user_password = 'template22', 'template!44'
+    user_login, user_password = 'Логин', 'Пароль123'
     fix = 'https://fix-online.sbis.ru/'
 
     # Переходим на fix
