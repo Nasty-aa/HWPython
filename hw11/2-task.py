@@ -14,7 +14,7 @@ driver = webdriver.Chrome()
 driver.maximize_window()
 
 try:
-    user_login, user_password = 'Логин', 'Пароль123'
+    user_login, user_password = 'template22', 'template!44'
     fix = 'https://fix-online.sbis.ru/'
 
     # Переходим на fix
@@ -50,7 +50,7 @@ try:
     sleep(3)
 
     # Ищем пользователя в списке
-    find_user = driver.find_element(By.CSS_SELECTOR, '[name="ws-input_2023-06-12"]')
+    find_user = driver.find_element(By.CLASS_NAME, 'controls-Field ')
     sleep(2)
     assert find_user.is_displayed(), 'Поиск не отображается'
     find_user.send_keys('Печатная')
@@ -75,7 +75,7 @@ try:
     sleep(3)
 
     # Находим поиск и вводим наш текст
-    search_message = driver.find_element(By.CSS_SELECTOR, '[name="ws-input_2023-06-12"]')
+    search_message = driver.find_element(By.CLASS_NAME, 'controls-Field ')
     assert search_message.is_displayed(), 'Нет поиска'
     search_message.send_keys('Текст для автотеста удалить')
     sleep(2)
