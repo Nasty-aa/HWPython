@@ -46,7 +46,7 @@ try:
     assert about.is_displayed(), 'Кнопка подробнее не отображается'
     about.click()
     sleep(2)
-    assert driver.current_url('https://tensor.ru/about'), 'Не верная ссылка'
+    assert driver.current_url == 'https://tensor.ru/about', 'Не верная ссылка'
 
 finally:
     driver.quit()
