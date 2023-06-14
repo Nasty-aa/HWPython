@@ -7,6 +7,7 @@ import pytest
 
 class TestExample:
     @pytest.mark.usefixtures('for_time')
+    @pytest.mark.usefixtures('for_time_run')
     def test_1(self):
         print('Запуск 1 теста')
 
